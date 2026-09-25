@@ -29,6 +29,7 @@ body {
   min-height: 100vh;
   background:
     radial-gradient(circle at 20% 0%, rgba(37,88,199,.10), transparent 28rem),
+    radial-gradient(circle at 90% 24%, rgba(124, 58, 237, .08), transparent 22rem),
     linear-gradient(180deg, #f7f9fc 0%, var(--page-bg) 100%);
   color: var(--text);
 }
@@ -119,6 +120,14 @@ h1 {
   width: min(100%, 430px);
   margin: 0 auto;
   padding: 18px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+@media (hover: hover) {
+  .calculator-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 52px rgba(18, 38, 63, .16);
+  }
 }
 
 .calculator-title-row {
@@ -153,7 +162,8 @@ h1 {
   margin-bottom: 14px;
   border: 1px solid #cbd5e1;
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+  background: linear-gradient(145deg, #f1f5f9 0%, #fff 65%);
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, .05);
 }
 
 .expression,
@@ -201,11 +211,11 @@ h1 {
   cursor: pointer;
   font-size: 1.2rem;
   font-weight: 750;
-  transition: transform .07s ease, background .14s ease, border-color .14s ease, box-shadow .14s ease;
+  transition: transform .1s ease, background .14s ease, border-color .14s ease, box-shadow .14s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-.key:hover { background: #f0f4f9; border-color: #b8c5d6; }
+.key:hover { background: #f0f4f9; border-color: #b8c5d6; transform: translateY(-1px); box-shadow: 0 4px 10px rgba(15,23,42,.08); }
 .key:active { transform: translateY(1px); box-shadow: none; }
 .key:focus-visible { outline: 3px solid rgba(37,88,199,.30); outline-offset: 2px; }
 
@@ -219,7 +229,8 @@ h1 {
 .key-operator.is-selected { border-color: var(--accent); background: var(--accent); color: #fff; }
 
 .key-control { background: #f3f4f6; color: #374151; }
-.key-control[data-action="clear"] { color: var(--danger); }
+.key-control[data-action="clear"] { border-color: #f2c8d8; background: #fff4f8; color: var(--danger); }
+.key-control[data-action="clear"]:hover { background: #ffe8f1; border-color: #eaa6bf; }
 
 .key-equal {
   grid-column: 4;
